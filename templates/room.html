@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ProgramPal-Code together chat forever </title>
+</head>
+  </head>
+
+  <body>
+
+     <!--------------------------- navbar start -------------------------------->
+     <!-- position: fixed; z-index: 1000; -->
+     <header class="header header--loggedIn"  style="height: 7rem; ">
+      <div class="container" >
+        <a href="/home" class="header_logo logo">
+          <img height="50rem" width="55rem" style="margin-right: 1rem; margin-top: 0.5rem;" src="{% static 'IMAGES/logo11.png' %}" />
+      </a>
+      
+        <form method="get" action="/home" class="header__search time hov2" style="margin-left: 13rem; ">
+          <label>
+            <i class="fa-solid fa-magnifying-glass"></i>
+              <title>search</title>
+            <input name="q"   placeholder="Search for posts"   style="width: 50rem;">
+          </label>
+        </form>
+        <a href="/courses"  ><button class="BecomePro">BecomePro+</button></a>
+        <nav class="header__menu">
+          
+          <a href="./profile.html">
+            <!-- <div class="avatar avatar--medium active time hov1" >
+              <img src="./mypic.png"  />
+            </div>  -->
+            <div>
+              <p><span class="time hov1">{{user}}</span></p>
+            </div>
+            <div>
+              <span class="time hov1" ><a href="/logout">Logout</a></span>
+              <!-- <button type="submit"><span  class="time hov1" ><a href="/logout">login</a></span></button> -->
+            </div>
+            
+          </a>
+          
+          
+          
+
+
+        </nav>
+      </div>
+  </header>
+
+    <a href="/home">
+      <button class="btn" style="margin-top: 1rem; margin-left: 1rem; background-color: green; margin-bottom: 0rem;"><i class="fa-solid fa-arrow-left" style="color: #020202;"></i></button>
+    </a>
+
+    {% if request.user == message.user %}
+    <a href=""><a href="./room.html"><p class="roomListRoom__topic time hov1" style=" display: none; background-color: rgb(167, 71, 71);">Delete</p></a></a>
+    {% endif %}
+  <!---------------------------------------------------------- Room Start ----------------------------------------------------------------------->
+    
+  
+  
+  <main class="profile-page layout layout--2">
+      <div class="container">
+        
+        <div class="room">
+          <div class="room__top">
+            <div class="room__topLeft">
+              <a href="index.html">
+               
+              </a>
+              <h3>Study Room</h3>
+            </div>
+           
+
+            <div class="room__topRight">
+              <a href="#">
+              </a>
+              <a href="#">
+              </a>
+            </div>
+
+           
+          </div>
+          <div class="room__box scroll">
+            <div class="room__header scroll">
+              <div class="room__info">
+                <h3>{{room.name}}</h3>
+                <span>{{room.created|timesince}} ago</span>
+              </div>
+              <div class="room__hosted">
+                <p>Hosted By</p>
+                <a href="#" class="room__author">
+                  <!-- <div class="avatar avatar--small time hov1">
+                    <img src="./mypic.png" />
+                  </div> -->
+                  <span>@{{room.host}}</span>
+                </a>
+              </div>
+              <span class="room__topics time hov2">{{room.topic}}</span>
+              <div class="room__details">
+                {{room.description}}
+              </div>
+              <a href="/deleteRoom/{{room.id}}"><p class="roomListRoom__topic time hov1" style="background-color: rgb(167, 71, 71);">Delete</p></a>
+            </div>
+            <div class="room__conversation">
+              <div class="threads scroll">
+
+  
+                {% for message in room_messages %}
+
+                <div class="thread">
+                  <div class="thread__top">
+                    <div class="thread__author">
+                      <a href="#" class="thread__authorInfo">
+                        <!-- <div class="avatar avatar--small time hov1">
+                          <img src="{{message.user.avatar.url}}" />
+                        </div> -->
+                        <span>@{{message.user.username}}</span>
+                      </a>
+                      <span class="thread__date">{{message.created|timesince}} ago</span>
+                    </div>
+                  </div>
+                  <div class="thread__details">
+                    {{message.body}}
+                  </div>
+                  <div class="room__message">
+                    {% if request.user.is_authenticated %}
+                    <form action="#" method="post">
+                      {% csrf_token %}
+                      <input name="body" placeholder="Write your message here..." />
+                    </form>
+                    {% endif %}
+                  </div>
+                  
+                  {% if request.user == message.user %}
+                  <a href="/deleteMessage/{{message.id}}"><p class="roomListRoom__topic time hov1" style="background-color: rgb(167, 71, 71);">Remove</p></a>
+                  {% endif %}
+                </div>
+                {% endfor %}
+ 
+              </div> 
+            </div>
+            
+            
+          </div>
+          
+        </div>
+        <!----------------------------------------------------- Room End-------------------------------------------------- -->
+
+        <!------------------------------------------------   right section start --------------------------------------------------->
+        
+    <div class="participants">
+      <h3 class="participants__top">Participants <span>({{participants.count}} Joined)</span></h3>
+      <div class="participants__list scroll">
+        {% for user in participants %}
+        <a href="" class="participant">
+          <!-- <div class="avatar avatar--medium">
+            <img src="{{user.avatar.url}}" />
+          </div> -->
+          <p class="time hov1">
+            {{user.name}}
+            <span>@{{user.username}}</span>
+          </p>
+        </a>
+        {% endfor %}
+        
+      </div>
+      
+    </div>
+    <!------------------------------------------------   right section End --------------------------------------------------->
+
+      
+
+
+      
+    </main>
+    
+    
+  </main>
+  <script src="./app.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+ </body>
+</html> 

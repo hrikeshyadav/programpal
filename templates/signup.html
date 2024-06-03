@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ProgramPal-Code together chat forever </title>
+
+  </head>
+  <body >
+    <a href="/login">
+      <button class="btn" style="margin-top: 1rem; margin-left: 1rem; background-color: green; margin-bottom: 0rem;"><i class="fa-solid fa-arrow-left" style="color: #020202;"></i></button>
+    </a>
+    <div style="display: flex;" class="signup_logo">
+      <img style="height: 10rem; width: 20rem; margin: auto;" src="{% static 'images/logo11.png' %}" alt="logo">
+    </div>
+   
+    <main class="auth layout" ;>
+      <div class="container">
+        <div class="layout__box" style="margin-top: 12.5rem;">
+          <div class="layout__boxHeader">
+            <div class="layout__boxTitle">
+              <h3>Sign up</h3>
+            </div>
+          </div>
+          <div class="layout__body">
+            <h2 class="auth__tagline">Code together chat forever </h2>
+              <div style="margin-top: 5rem; padding: 0.5rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);">
+                {% if errmsg %}
+                  <div style="color: #721c24; background-color: #f8d7da; border-color: #f5c6cb;" role="alert">
+                    {{errmsg}}
+                  </div>
+                {% endif %}
+              
+                {% if success %}
+                  <div style="color: black; background-color: #155724; border-radius: 0.5rem;" role="alert">
+                    {{success}}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            <form class="form" method="post">
+            {% csrf_token %}
+              <div class="form__group form__group">
+                <label for="fullname">Full Name</label>
+                <input id="fullname" name="uname" type="text" placeholder="eg. Rushikesh Yadav" />
+              </div>
+              <div class="form__group form__group">
+                <label for="room_name">Username</label>
+                <input id="username" name="username" type="username" placeholder="eg. abc1999@gamail.com" />
+              </div>
+              <div class="form__group">
+                <label for="password">Password</label>
+                <input
+                  id="password"
+                  name="upass"
+                  type="password"
+                  placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                />
+              </div>
+
+              <div class="form__group">
+                <label for="confirm_password">Confirm Password</label>
+                <input
+                  id="confirm_password"
+                  name="ucpass"
+                  type="password"
+                  placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                />
+              </div>
+
+              <button class="btn btn--main" type="submit">
+                Sign Up
+              </button>
+            </form>
+
+            <div class="auth__action">
+              <p>Already have an account?</p>
+              <a href="/login" class="btn btn--link">Log In</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

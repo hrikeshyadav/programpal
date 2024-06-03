@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+<a class="btn btn--main" href="'/create-room'">
+    Create Room
+  </a>
+
+
+{% for i in data %}
+
+<a href="'/UpdateRoom">Edit</a>
+
+<p>{{i.host.username}}</p>
+<p>{{i.name}}</p>
+<p>{{i.description}}</p><br><br>
+{% endfor %}
+
+<br><br>
+
+<div>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{from}}
+    <input type="submit">
+  </form>
+</div>
+
+
+{% endblock 'main' %}

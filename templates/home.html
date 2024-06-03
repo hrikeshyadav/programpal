@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+
+
+  <!--------------------------- left section  start ------------------------------------------------------->
+  <a href="/login">
+    <button class="btn btn1" style=" position: fixed; z-index: 1000; margin-top: 1rem; margin-left: 1rem;  background-color: green; margin-bottom: 0.5rem;"><i class="fa-solid fa-arrow-left" style="color: #020202; "></i></button>
+  </a>
+  <main class="layout layout--3">
+      <!-- <button>go back</button> -->
+      <div class="container" >
+        
+        <!-- Topics Start -->
+        <div class="topics" >
+          <div class="topics__header time hov1">
+            <a href="./topics.html"><h2>Browse Topics</h2></a>
+          </div>
+          <ul class="topics__list ">
+            <li>
+              <a href="/home" class="active time hov1">All <span>{{room_count}}</span></a>
+            </li>
+              {% for i in topics %}
+              <li>
+                <!-- <a href="/home/?q={{i.name}}" class="time hov1" >{{i.name}} <span>{{i.room_set.all.count}}</span></a> -->
+                <a href="#" class="time hov1">{{i.name}} <span>{{i.room_set.all.count}}</span></a>
+              </li>
+              {% endfor %}
+            <!-- <li>
+              <a href="/" class="time hov1">JavaScript <span>122</span></a>
+            </li>
+            <li>
+              <a href="/" class="time hov1">React <span>57</span></a>
+            </li>
+            <li>
+              <a href="/" class="time hov1">Database <span>90</span></a>
+            </li>
+          </ul> -->
+          <!-- <a class="btn btn--link time hov1" href="topics.html">
+            More
+            
+          </a> -->
+        </div>
+        <!--------------------------- left section  end ------------------------------------------------------->
+        
+
+        <!-------------------------------- Maincontent start ----------------------------------------->
+
+        <div class="roomList" style="margin-left: 1rem; margin-right: 1rem; margin-bottom: 7rem;">
+          <div class="mobile-menu">     
+            <form class="header__search">
+              <label>
+                
+                <input placeholder="Search for posts" />
+              </label>
+            </form>
+            {% csrf_token %}
+            <div class="mobile-menuItems">
+              <a class="btn btn--main btn--pill" href="./topics.html">Browse Topics</a>
+              <a class="btn btn--main btn--pill" href="./topics.html">Recent Activities</a>
+            </div>
+          </div>
+          <div class="roomList__header">
+            <div>
+              <h2>Study Room</h2>
+              <p>{{room_count}} Rooms available</p>
+            </div>
+            <a class="btn btn--main" href="/create-room">
+              Create Room
+            </a>
+          </div>
+
+
+          {% for i in rooms %}
+          <div class="roomListRoom time hov2" style="width: 65rem;" >
+
+            
+            <div class="roomListRoom__header " >
+              <a href="profile.html" class="roomListRoom__author">
+                <!-- <div class="avatar avatar--small">
+                  <img class="time hov1" src="./mypic.png" />
+                </div> -->
+                <span>@{{i.host}}</span>
+              </a>
+              <div class="roomListRoom__actions">
+                <span>{{i.created|timesince}} </span>
+              </div>
+            </div>
+            
+            <div class="roomListRoom__content">
+              <a href="/room/{{i.id}}"><p style="color: aqua;">{{i.name}}</p></a>
+              <p>{{i.description}}</p>
+              
+              {% if user.is_authenticated %}
+ 
+                <a href="/room/{{i.id}}"><p class="roomListRoom__topic time hov1" style="background-color: rgb(98, 167, 71); margin-top: 1rem;">Chat</p></a>
+              {% else %}
+                <a href="./room.html"><p class="roomListRoom__topic time hov1" style=" display: none; background-color: rgb(167, 71, 71);">Delete</p></a>
+              {% endif %}
+            </div>
+           
+            <div class="roomListRoom__meta">
+              <a href="/room/{{i.id}}" class="roomListRoom__joined">
+               
+                {{i.participants.all.count}} Joined
+              </a>
+             
+              
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    <!------------------------------------- Maincontent start -------------------------------------------------->
+
+        <!-------------------------------- Right section start ----------------------------------------->
+        <div class="activities " >
+          
+          <div class="activities__header">
+            <a style="display: block;" href="profile.html"><h2>Recent Activities</h2></a>
+          </div>
+
+          {% for message in room_messages %}
+          <div class="activities__box time hov2">
+            <div class="activities__boxHeader roomListRoom__header">
+              <a href="profile.html" class="roomListRoom__author">
+                <!-- <div class="avatar avatar--small">
+                  <img class="time hov1" src='https://images.unsplash.com/photo-1453396450673-3fe83d2db2c4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5kaWFuJTIwbWVuJTIwaW4lMjBmb3JtYWx8ZW58MHx8MHx8fDA%3D' />
+                </div> -->
+                <p>
+                  @{{message.user}}
+                  
+                </p>
+                <div>
+                  <span style="color: aliceblue; font-size: 1rem; margin-left: 8rem;">{{message.created|timesince}} ago</span>
+                </div>
+              </a>
+              <div class="roomListRoom__actions">
+                
+              </div>
+            </div>
+            <div class="activities__boxContent ">
+              <p>replied to post “<a href="room.html">{{message.room}}</a>”</p>
+              <div class="activities__boxRoomContent ">
+                {{message.body}}
+                
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+
+         
+        </div>
+        <!-------------------------------- Right section end ----------------------------------------->
+      </div>
+
+
+
+
+{% endblock 'main' %}

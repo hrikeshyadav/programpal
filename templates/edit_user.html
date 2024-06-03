@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+
+  <body style="overflow: hidden;">
+     <!--------------------------- navbar start -------------------------------->
+     <header class="header header--loggedIn"  style="height: 7rem; ">
+      <div class="container">
+        <a href="index.html" class="header_logo logo ">
+          <img   height="40rem" width="45rem" style="margin-right: 1rem; margin-top: 0.5rem;" src="./logo11.png"  /> 
+        </a>
+        <form class="header__search time hov1" style="margin-left: 13rem;">
+          <label>
+            <i class="fa-solid fa-magnifying-glass"></i>
+              <title>search</title>
+            <input placeholder="Search for posts"  style="width: 50rem;">
+          </label>
+        </form>
+        <nav class="header__menu">
+          <a href="./profile.html">
+            <div class="avatar avatar--medium active time hov1" style="margin-top: 1rem;">
+              <img src="./mypic.png"  />
+             
+            </div>
+            
+          </a>
+        </nav>
+      </div>
+  </header>
+  <!------------------------------------------------------    navbar end     ------------------------------------------------------------->
+
+  
+  <a href="./index.html">
+    <button class="btn" style="margin-top: 1rem; margin-left: 1rem; background-color: green; margin-bottom: 0rem;"><i class="fa-solid fa-arrow-left" style="color: #020202;"></i></button>
+  </a>
+
+    <main class="update-account layout">
+        <div class="container"  >
+            <div class="layout__box">
+                <div class="layout__boxHeader">
+                    <div class="layout__boxTitle">
+                        <a href="profile.html">
+                        </a>
+                        <h3>Edit your profile</h3>
+                    </div>
+                </div>
+                <div class="layout__body">
+                    <form class="form" action="#">
+                        <div class="form__group">
+                            <label for="profile_pic">Avatar</label>
+                            <input id="profile_pic" class="time hov2" name="profile_pic" type="file" />
+                        </div>
+
+              <div class="form__group">
+                <label for="username">Username</label>
+                <input id="username" class="time hov2" name="username" type="text" placeholder="eg y.rushi" />
+              </div>
+
+              <div class="form__group">
+                <label for="email">Email</label>
+                <input id="email" class="time hov2" name="email" type="text" placeholder="eg hrikeshyadav1999@gmail.com" />
+              </div>
+
+                        <div class="form__group">
+                            <label for="user_bio">Bio</label>
+                            <textarea name="user_bio" class="time hov2" id="user_bio" placeholder="Write about yourself..."></textarea>
+                        </div>
+                        <div class="form__action">
+                            <a class="btn btn--dark" href="index.html">Cancel</a>
+                            <button class="btn btn--main" type="submit">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer" >
+      <div class="footer-text" style="margin: auto;">
+          <p>Copyright &copy; 2024 by Rushikesh Yadav | All Rights Reserved. |
+            <a href="#"><i class="fa-brands fa-square-instagram time hov1" style="color: #000000;"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin time hov1" style="color: #000205;"></i></a>
+            <a href="#"><i class="fa-brands fa-github time hov1" style="color: #000000;"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook time hov1" style="color: #000000;"></i></a>
+        </p>
+      </div>
+    </footer>
+    <!--------------------------- Footer end -------------------------------->
+    
+{% endblock 'main' %}
