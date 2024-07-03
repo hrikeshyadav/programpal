@@ -65,7 +65,17 @@ python manage.py runserver
 <p align="center">
   Room Conversation Preview
 </p>
-<img src="">  
+<img src="Screenshot 2024-07-03 184218](https://github.com/hrikeshyadav/programpal/assets/118671176/e18f1923-3651-4e68-b42d-7c365b191074">  
+</td>
+<p align="center">
+  User profile
+</p>
+<img src="Screenshot 2024-07-03 184218](https://github.com/hrikeshyadav/programpal/assets/118671176/e18f1923-3651-4e68-b42d-7c365b191074">  
+</td>
+<p align="center">
+  Room Conversation Preview
+</p>
+<img src="Screenshot 2024-07-03 184218](https://github.com/hrikeshyadav/programpal/assets/118671176/e18f1923-3651-4e68-b42d-7c365b191074">  
 </td>
 </table>
 
