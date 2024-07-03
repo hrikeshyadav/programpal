@@ -70,10 +70,34 @@ python manage.py runserver
 
 <br>
 <p align="center">
-  Room Conversation Preview
+  Courses Buying
 </p>
-<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/e18f1923-3651-4e68-b42d-7c365b191074">  
+<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/d9a57980-ae32-4e82-a216-6dce210c264d">  
 </td>
+
+<br>
+<p align="center">
+  Courses Buying
+</p>
+<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/d9a57980-ae32-4e82-a216-6dce210c264d">  
+</td>
+
+
+<br>
+<p align="center">
+  Courses Buying
+</p>
+<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/d9a57980-ae32-4e82-a216-6dce210c264d">  
+</td>
+
+
+<br>
+<p align="center">
+  Courses Buying
+</p>
+<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/d9a57980-ae32-4e82-a216-6dce210c264d">  
+</td>
+
 
 
 
