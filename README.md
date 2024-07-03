@@ -77,8 +77,5 @@ python manage.py runserver
 
 
 
-<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/e18f1923-3651-4e68-b42d-7c365b191074](https://github.com/hrikeshyadav/programpal/assets/118671176/efea5870-7c02-4274-b87c-64a4fc7a6d8a">  
-</td>
-
 
 
