@@ -75,28 +75,7 @@ python manage.py runserver
 <img src="https://github.com/hrikeshyadav/programpal/assets/118671176/d9a57980-ae32-4e82-a216-6dce210c264d">  
 </td>
 
-<br>
-<p align="center">
-  Courses Buying
-</p>
-<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/d9a57980-ae32-4e82-a216-6dce210c264d">  
-</td>
 
-
-<br>
-<p align="center">
-  Courses Buying
-</p>
-<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/d9a57980-ae32-4e82-a216-6dce210c264d">  
-</td>
-
-
-<br>
-<p align="center">
-  Courses Buying
-</p>
-<img src="https://github.com/hrikeshyadav/programpal/assets/118671176/d9a57980-ae32-4e82-a216-6dce210c264d">  
-</td>
 
 
 
