@@ -57,7 +57,8 @@ python manage.py runserver
 <p align="center">
   Feed Home
 </p>
-![Screenshot 2024-07-03 183221](https://github.com/hrikeshyadav/programpal/assets/118671176/70b25b29-7977-43a9-9dfd-da8b80dd35f6)
+  <img src="https://github.com/hrikeshyadav/programpal/assets/118671176/70b25b29-7977-43a9-9dfd-da8b80dd35f6">
+
 </td> 
 <td width="50%">
 <br>
