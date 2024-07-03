@@ -1,5 +1,5 @@
 <div align="center">
-<img width="30%" src="https">
+<img width="30%" src="https://github.com/hrikeshyadav/programpal/assets/118671176/879cfe60-37cf-4d01-937a-3880f72e9e70">
 
 # programpal
 </div>
